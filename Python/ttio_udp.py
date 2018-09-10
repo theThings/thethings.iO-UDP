@@ -9,12 +9,12 @@ def sendUDPMessageTTIOv0(productId, hashStr, deviceId, messageStr, sha1Str = Non
     protocol = '0x00'
 
     idProductHex = decimalToPaddedHexString(productId)
-    idProductLengthHex = decimalToPaddedHexString(len(idProductHex)-2)
+    idProductLengthHex = decimalToPaddedHexString((len(idProductHex)-2)/2)
     
     hashHex = stringToHex(hashStr)
     
     idDeviceHex = stringToHex(deviceId)
-    idDeviceLengthHex = decimalToPaddedHexString(len(idDeviceHex)-2)
+    idDeviceLengthHex = decimalToPaddedHexString((len(idDeviceHex)-2)/2)
 
     mg = messageStr
 

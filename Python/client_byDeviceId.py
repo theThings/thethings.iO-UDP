@@ -2,10 +2,10 @@ import ttio_udp
 
 # by deviceId
 
-productId = 19244
-hashStr = '8RLfCQROVqpwag'
+productId = 1234
+hashStr = 'hashexample'
 deviceId = 'TTIO_TRIAL'
-messageStr = 'ABCD1234'
+messageStr = '1a2b3c'
 # sha1 = ''
 
 ttio_udp.sendUDPMessageTTIOv0(productId,hashStr,deviceId,messageStr)
