@@ -13,7 +13,7 @@ In case you don't know how to fix the issue, we kindly ask you to contact us ind
 
 | Status code | Description | Observations |
 | ------------- | ------------- |------|
-|0x20 |	OK. Cloud function was called | It means that the message is correctly formatted and the function udp_parser was called. However, it doesn't assures that the function was executed correctly |
+|0x20 |	OK. Cloud function was called | It means that the message is correctly formatted and the function udp_parser was called. However, it doesn't ensure that the function was executed correctly |
 |0x00 |	Internal error | Please contact us |
 |0x01 |	Invalid protocol | You are using a protocol different from 0x00 or 0x01 |
 |0x02 |	Invalid product Id | |
