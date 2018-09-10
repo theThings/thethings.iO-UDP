@@ -1,4 +1,4 @@
-const ttio_udp = require('lib/ttio_udp');
+const ttio_udp = require('./lib/ttio_udp');
 
 // by deviceId
 

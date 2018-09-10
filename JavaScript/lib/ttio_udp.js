@@ -9,8 +9,6 @@ exports.sendUDPMessageTTIOv0 = function(productId, hash, deviceId, messageStr, s
     let protocol = Buffer.from('00', 'hex');
    
     var productIdHex = decimalToPaddedHexString(productId);
-    var deviceIdLength = deviceId.length.toString(16);
-    if (deviceIdLength.length == 1) deviceIdLength = '0' + deviceIdLength;
     let idProductHex = Buffer.from(productIdHex, 'hex'); 
 
     var idProductLength = idProductHex.length.toString(16)
@@ -20,7 +18,9 @@ exports.sendUDPMessageTTIOv0 = function(productId, hash, deviceId, messageStr, s
     let hashHex = Buffer.from(hash.toString('hex'));
 
     let idDeviceHex = Buffer.from(deviceId.toString('hex'));
-    
+
+    var deviceIdLength = deviceId.length.toString(16);
+    if (deviceIdLength.length == 1) deviceIdLength = '0' + deviceIdLength;
     var idDeviceLength = idDeviceHex.length.toString(16)
     if (idDeviceLength.length == 1) idDeviceLength = '0' + idDeviceLength;
     let idDeviceLengthHex = Buffer.from(idDeviceLength, 'hex');
