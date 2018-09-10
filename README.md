@@ -1,5 +1,5 @@
 # thethings.iO-UDP
-Repository with all you need to send messages to TTIO using UDP protocol
+Repository with all you need to send messages to thethings.io using UDP protocol. You can use JavaScript or Python to test the examples
 
 ## What is UDP?
 
