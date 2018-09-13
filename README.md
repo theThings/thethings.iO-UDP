@@ -17,33 +17,35 @@ This is the structure of the message:
 
 ##### TTIO_HEADER | PAYLOAD | HMAC-SHA1(PSK, PAYLOAD) 
 
-## thethings.iO header
+### thethings.iO header
 
 To be able to communicate with our UDP service, you first have to add a header to your UDP data. At this moment we provide two possible headers to best adapt to your use case.
 
-### Using your own deviceId.
+#### Note that each byte is represented by two characters (e.g number 1 (dec) is 0x01 (padded hex)). Then, the whole string must be an even number.
+
+#### Using your own deviceId.
 
 You don't have to activate the things. They will be activated automatically once you send first message
 
 | Byte | Value | Description |
 | ------------- | ------------- |------|
-Byte 0 | 0x00 | Header type: deviceId
-Byte 1 | Number 1 | Length of the idProduct value
-Bytes 2 to 2+(idProduct length) | Number | idProduct Value.
-Bytes 2+(idProduct length) to 16+(idProduct length) | String | idProduct Hash string
-Byte 16+(idProduct length) | Number | deviceId Length | 
-Bytes 17+(idProduct length) to 17+(idProduct length)+(deviceId Length) | String | DeviceId String
+| Byte 0 | 0x00 | Header type: deviceId |
+| Byte 1 | Number (HEX) | Length of the idProduct value |
+| Bytes 2 to 2+(idProduct length) | Number (HEX) | idProduct Value |
+| Bytes 2 + (idProduct length) to 16+(idProduct length) | String (HEX) | idProduct Hash string |
+| Byte 16 + (idProduct length) | Number (HEX) | deviceId Length | 
+| Bytes 17 + (idProduct length) to 17 + (idProduct length) + (deviceId Length) | String (HEX) | DeviceId String |
 
-### Using our thingToken
+#### Using our thingToken
 
 Things must be activated before you send first message.
 
 | Byte | Value | Description |
 | ------------- | ------------- |------|
-Byte 0 | 0x01 | Header type: thingToken
-Bytes 1 to 43 | String| thingToken
+| Byte 0 | 0x01 | Header type: thingToken |
+| Bytes 1 to 43 | String| thingToken |
 
-## Payload
+### Payload
 
 Once you have the header you have to concatenate your own payload. This payload will be sent as an hex string to a cloud code function which will parse the payload sent by your devices. This cloud code function is created automatically when you create a new UDP product.
 
@@ -65,7 +67,7 @@ In case you don't know how to fix the issue, we kindly ask you to contact us ind
 |0x20 |	OK. Cloud function was called | It means that the message is correctly formatted and the function udp_parser was called. However, it doesn't ensure that the function was executed correctly |
 |0x00 |	Internal error | Please contact us |
 |0x01 |	Invalid protocol | You are using a protocol different from 0x00 or 0x01 |
-|0x02 |	Invalid product Id | |
+|0x02 |	Invalid product Id | The product doesn't exist |
 |0x03 |	Invalid product hash | |
 |0x04 |	Thing not found | |
 |0x05 |	Message or Key length incorrect | |
