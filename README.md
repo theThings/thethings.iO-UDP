@@ -1,17 +1,19 @@
 # thethings.iO-UDP
 Repository with all you need to send messages to thethings.io using UDP protocol. You can use JavaScript or Python to test the examples
 
+
 ## What is UDP?
 
 User Datagram Protocol (UDP). With UDP, computer applications can send messages, in this case referred to as datagrams, to other hosts on an Internet Protocol (IP) network.
+
 
 ## Connection parameters
 
 ##### The format is a HEX String.
 
-UDP thethings.iO gateway IP: 104.199.85.211
-
-The port is: 28399
+| UDP thethings.iO gateway IP| Port  |
+| --- |----|
+| 104.199.85.211 | 28399 |
 
 This is the structure of the message:
 
