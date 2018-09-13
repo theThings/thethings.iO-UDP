@@ -47,7 +47,9 @@ Things must be activated before you send first message.
 
 ### Payload
 
-Once you have the header you have to concatenate your own payload. This payload will be sent as an hex string to a cloud code function which will parse the payload sent by your devices. This cloud code function is created automatically when you create a new UDP product.
+Once you have the header you have to concatenate it with the payload. The payload consists on a hex string. The whole string must be an even number.
+
+This payload will be sent as a hex string to a cloud code function which will parse the payload sent by your devices. This cloud code function is created automatically when you create a new UDP product. You can read more about our cloud code function in our [Developers Portal](https://developers.thethings.io/v2.0/docs/udp)
 
 ### HMAC-SHA1
 
@@ -83,4 +85,4 @@ In case you don't know how to fix the issue, we kindly ask you to contact us ind
 
 ## More information
 
-You can find more information about the UPD protocol at our Developers Portal: https://developers.thethings.io/v2.0/docs/udp
+You can find more information about the UPD protocol in our [Developers Portal](https://developers.thethings.io/v2.0/docs/udp)
